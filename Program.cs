@@ -1,49 +1,23 @@
-﻿Console.Write(@"   --- ° FLUXOGRAMA DA ENGENHARIA ° ---
+﻿﻿decimal B1, B2, B3, B4, media;
 
-O objeto está se movendo? (S/N) ");
-string movendo = Console.ReadLine()!.Trim().Substring(0, 1).ToUpper();
+Console.Write(@"   --- ° NOTAS BIMESTRE ° ---
+Digite sua nota do 1º Bimestre: "); 
+B1 = Convert.ToDecimal(Console.ReadLine());
 
-bool mv = movendo == "S";
-bool mvn = movendo == "N";
-bool mvv = mv || mvn;
+Console.Write("2º Bimestre: "); 
+B2 = Convert.ToDecimal(Console.ReadLine());
 
-if (!mvv)
-{
-    Console.WriteLine("Informe somente S ou N");
-    return;
-}
+Console.Write("3º Bimestre: "); 
+B3 = Convert.ToDecimal(Console.ReadLine());
 
-Console.Write("Deveria? (S/N) ");
+Console.Write("4º Bimestre: "); 
+B4 = Convert.ToDecimal(Console.ReadLine());
 
-string deveria = Console.ReadLine()!.Trim().Substring(0, 1).ToUpper();
+media = (B1 + B2 + B3 + B4) / 4;
 
-bool dv = deveria == "S";
-bool dvn = deveria == "N";
-bool dvv = dv || dvn;
+Console.WriteLine($"Média: {media}");
 
-if (!dvv)
-{
-    Console.WriteLine("Informe somente S ou N");
-    return;
-}
-string mensagem;
-
-if (!mv)
-{
-    if (!dv)
-    { mensagem = "Tão ta bão!"; }
-    else
-    { mensagem = "TÃO TA RUIM!, Use o WD-40."; }
-}
+if (media >= 5)
+    Console.WriteLine("Aprovado");
 else
-{
-    if (dv)
-    { mensagem = "Tão ta bão!"; }
-    else
-    { mensagem = "TÃO TA RUIM!, Use Silver Tape."; }
-}
-
-Console.WriteLine();
-Console.WriteLine(mensagem);
-
-// Jenni e nicolas fizeram juntos
+    Console.WriteLine("Reprovado");
